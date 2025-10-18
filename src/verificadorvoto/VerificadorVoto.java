@@ -1,32 +1,31 @@
 package verificadorvoto;
 
+import java.util.Scanner;
+
 public class VerificadorVoto {
-
-    public static String podeVotar(int idade) {
-        if (idade >= 16) {
-            return "Pode votar!";
-        } else {
-            return "Não pode votar";
-        }
-    }
-
-    
     
     public static void main(String[] args) {
-        // Teste com idade limite (16)
-        int idade1 = 16;
-        System.out.println("Idade: " + idade1 + " -> " + VerificadorVoto.podeVotar(idade1)); // Deve retornar "Pode votar."
-
-        // Teste com idade acima de 16
-        int idade2 = 25;
-        System.out.println("Idade: " + idade2 + " -> " + VerificadorVoto.podeVotar(idade2)); // Deve retornar "Pode votar."
-
-        // Teste com idade abaixo de 16
-        int idade3 = 15;
-        System.out.println("Idade: " + idade3 + " -> " + VerificadorVoto.podeVotar(idade3)); // Deve retornar "Não pode votar."
-
-        // Teste com outra idade abaixo de 16
-        int idade4 = 10;
-        System.out.println("Idade: " + idade4 + " -> " + VerificadorVoto.podeVotar(idade4)); // Deve retornar "Não pode votar."
+        int op;
+        Scanner scanner = new Scanner(System.in);
+        do{
+            System.out.println("1 - Verificador de Idade");
+            System.out.println("2 - Calculadora de Área de Quadrado");
+            System.out.println("3 - Conversor de Temperatura");
+            System.out.println("4 - Concatenador de Nome Completo");
+            System.out.println("5 - Sair");
+            System.out.println("Digite uma opção");
+            op = scanner.nextInt();
+            
+            switch (op) {
+                case 1:
+                    System.out.println("Digite uma idade:");
+                    int idades = scanner.nextInt();
+                    ChamarMetodo.podeVotar(idades);
+                    break;
+                default:
+                    System.err.println("Opção inválida!");
+            }
+            
+        }while (op != 5);
     }
 }
